@@ -1,0 +1,120 @@
+*{
+    margin: 0;
+    padding: 0;
+    
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body{
+    background-color: black;
+    
+}
+.header{
+    display: flex;
+    justify-content: space-around;
+    padding: 40px;
+    background-color: rgba(156, 82, 224, 0.6);
+    border-bottom-left-radius: 80%;
+    border-bottom-right-radius: 80%;
+    
+}
+
+h1{
+    background-color: transparent;
+    font-size: 3rem;
+    font-weight: 700;
+    
+}
+a{
+    color: white;
+    background-color: transparent;
+}
+i{
+    background-color: transparent;
+    font-size: 3rem;
+    cursor: pointer;
+}
+
+.main{
+margin-top: 20px;
+display: flex;
+justify-content: center;
+gap: 3rem;
+flex-wrap: wrap;
+}
+
+.card{
+    border: 2px solid rgba(255, 255, 255, 0.9);
+    padding: 0.5rem;
+}
+
+img{
+    width: 300px;
+    height: 600px;
+    object-fit: cover;
+}
+
+button{
+    cursor: pointer;
+    padding: 10px;
+    border: none;
+    background-color: rgb(128, 128, 128,0.5);
+    border-radius: 20px;
+}
+
+.textos{
+font-size: 1.4rem;
+}
+
+.section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.carrito{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+.carrito-h2{
+    font-size: 2.5rem;
+}
+.barrita{
+    border: 5px solid white;
+    margin: 20px 0px;
+}
+
+.cardCarrito{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.div-comprar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.comprar{
+    font-size: 1.5rem;
+    padding: 1.5rem;
+    margin: 20px 10px 10px 0px;
+}
+
+#total{
+    margin: 1rem;
+    font-size: 3rem;
+    color: violet;
+}
+
+.vaciar{
+    font-size: 1.5rem;
+    padding: 1.5rem;
+    margin: 20px 10px 10px 0px;
+}

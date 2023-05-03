@@ -1,0 +1,46 @@
+
+    [
+      {
+        "id": 1,
+        "nombre": "Superstar",
+        "precio": 10000,
+        "img": "https://images.pexels.com/photos/10547804/pexels-photo-10547804.jpeg?auto=compress&cs=tinysrgb&w=400",
+        "k": 1
+      },
+      {
+        "id": 2,
+        "nombre": "Oldschool",
+        "precio": 15000,
+        "img": "https://images.pexels.com/photos/8609267/pexels-photo-8609267.jpeg?auto=compress&cs=tinysrgb&w=400",
+        "k": 1
+      },
+      {
+        "id": 3,
+        "nombre": "Superboost",
+        "precio": 5000,
+        "img": "https://images.pexels.com/photos/1280064/pexels-photo-1280064.jpeg?auto=compress&cs=tinysrgb&w=1600",
+        "k": 1
+      },
+      {
+        "id": 4,
+        "nombre": "Airmax",
+        "precio": 7500,
+        "img": "https://images.pexels.com/photos/6295121/pexels-photo-6295121.jpeg?auto=compress&cs=tinysrgb&w=400",
+        "k": 1
+      },
+      {
+        "id": 5,
+        "nombre": "Airforce1",
+        "precio": 12500,
+        "img": "https://images.pexels.com/photos/3261068/pexels-photo-3261068.jpeg?auto=compress&cs=tinysrgb&w=400",
+        "k": 1
+      },
+      {
+        "id": 6,
+        "nombre": "Yeezy",
+        "precio": 20000,
+        "img": "https://images.pexels.com/photos/5066944/pexels-photo-5066944.jpeg?auto=compress&cs=tinysrgb&w=400",
+        "k": 1
+      }
+    ]
+  
