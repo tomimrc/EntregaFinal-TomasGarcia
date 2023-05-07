@@ -1,6 +1,19 @@
 
 let cardExistente
 let reducir = 0
+let mainEnDom = document.getElementById("main")
+let divCarrito = document.getElementById("carrito")
+let divComprar = document.getElementById("divComprar")
+let comprar = document.getElementById("comprar")
+const vaciar = document.getElementById("vaciar")
+const iconoDark = document.getElementById("i-dark") 
+const iconoBright = document.getElementById("i-bright")
+const divDark = document.getElementById("div-dark")
+const body = document.getElementById("body")
+
+
+
+
 
 
 
@@ -8,19 +21,22 @@ let reducir = 0
 class Zapatilla{
     constructor(){
         this.listaZapatillas = []
-    }
+}
 
-    agregar(){
-        listaZapatillas.forEach(element => {
-            this.listaZapatillas.push(element)
-        });
 
-    }
+async Pedir(){
+    const resp = await fetch("./zapatillas.json")
+    this.listaZapatillas = await resp.json()
+    this.mostrarEnDom()
+    carritoController.agregarYMostrarCarrito()
+    carritoController.obtenerDeJson()
+    carritoController.toastify()
+}
 
-    mostrarEnDom(){
+mostrarEnDom(){
         this.listaZapatillas.forEach( element =>{
             mainEnDom.innerHTML += `
-            <div class="card" id="${element.id}">
+            <div class="card" id="${element.id} card">
             <img src="${element.img}" alt="Zapatilla ${element.id}">
             <h2>${element.nombre}</h2>
             <div class ="textos">
@@ -30,11 +46,13 @@ class Zapatilla{
             </div>`
             
         })
-    }
-
-
+}
 }
 
+
+
+let zapatillas = new Zapatilla()
+zapatillas.Pedir()
 
 
 
@@ -76,9 +94,9 @@ agregarYMostrarCarrito() {
         this.pasarAJson()
     });
     });
-    }
+}
 
-    obtenerDeJson(){
+obtenerDeJson(){
         if (localStorage.getItem("zapatillas")){
           let listaCarritoEnJson = localStorage.getItem("zapatillas")
           let listaCarrito = JSON.parse(listaCarritoEnJson)
@@ -114,14 +132,12 @@ agregarYMostrarCarrito() {
         } else {
           this.listaCarrito = []
         }
-      }
+}
 
-    pasarAJson(){
+pasarAJson(){
         let zapatillaEnJson = JSON.stringify(this.listaCarrito)
             localStorage.setItem("zapatillas",zapatillaEnJson)
-    }
-
-
+}
 
 totalCarrito(){
     comprar.addEventListener("click",() =>{
@@ -141,7 +157,7 @@ totalCarrito(){
                 reducir = this.listaCarrito.reduce((acc,item) =>{
                 return acc += item.precio
             }, 0)
-            console.log(reducir)
+            
             let total = document.getElementById("total")
             total.innerText = "Total: " + reducir 
             Swal.fire({
@@ -158,7 +174,7 @@ totalCarrito(){
 }
 
 toastify(){
-    listaZapatillas.forEach((element) => {
+    zapatillas.listaZapatillas.forEach((element) => {
     const boton = document.getElementById(`boton${element.id}`)
     boton.addEventListener("click", ()=>{
         setTimeout(() => {
@@ -198,38 +214,36 @@ eliminarDeCarrito(){
         
     })
 }
+
 }
 
 
 
-const listaZapatillas = [
-    {id:1,nombre:"Superstar",precio:10000,img:"https://images.pexels.com/photos/10547804/pexels-photo-10547804.jpeg?auto=compress&cs=tinysrgb&w=400",k:1},
-    {id:2,nombre:"Oldschool",precio:15000,img:"https://images.pexels.com/photos/8609267/pexels-photo-8609267.jpeg?auto=compress&cs=tinysrgb&w=400",k:1},
-    {id:3,nombre:"Superboost",precio:5000,img:"https://images.pexels.com/photos/1280064/pexels-photo-1280064.jpeg?auto=compress&cs=tinysrgb&w=1600",k:1},
-    {id:4,nombre:"Airmax",precio:7500,img:"https://images.pexels.com/photos/6295121/pexels-photo-6295121.jpeg?auto=compress&cs=tinysrgb&w=400",k:1},
-    {id:5,nombre:"Airforce1",precio:12500,img:"https://images.pexels.com/photos/3261068/pexels-photo-3261068.jpeg?auto=compress&cs=tinysrgb&w=400",k:1},
-    {id:6,nombre:"Yeezy",precio:20000,img:"https://images.pexels.com/photos/5066944/pexels-photo-5066944.jpeg?auto=compress&cs=tinysrgb&w=400",k:1}]
-
-    let mainEnDom = document.getElementById("main")
-    let divCarrito = document.getElementById("carrito")
-    let divComprar = document.getElementById("divComprar")
-    let comprar = document.getElementById("comprar")
-    const vaciar = document.getElementById("vaciar")
-    
-let zapatillas = new Zapatilla()
-zapatillas.agregar()
-zapatillas.mostrarEnDom()
-
-
 let carritoController = new Carrito()
-
-
-
-carritoController.agregarYMostrarCarrito()
 carritoController.totalCarrito()
 carritoController.eliminarDeCarrito()
-carritoController.obtenerDeJson()
-carritoController.toastify()
+
+
+const card = document.getElementById("card")
+iconoDark.addEventListener("click",()=>{
+    body.classList.add("dark")
+    body.classList.remove("bright")
+})
+    
+    
+
+iconoBright.addEventListener("click",() =>{
+    body.classList.add("bright")
+    body.classList.remove("dark")
+    
+})
+
+
+
+
+
+
+
 
 
 
